@@ -25,20 +25,41 @@ public class TwoDimRaggedArrayUtility {
         System.arraycopy(strArray.get(row), 0, raggedArray[row], 0, strArray.get(row).length);
       }
       return raggedArray;
-    } catch (Exception e) {
-      throw e;
     }
   }
   
   public static void writeToFile(double[][] data, File file) throws IOException {
-    FileWriter outputFile = new FileWriter(file, true); // ADD TRUE IF NEEDS TO BE APPENDING
+    try (FileWriter outputFile = new FileWriter(file, true)) {  
+      for (int row = 0; row < data.length; row++) {
+        for (int index = 0; index < data[row].length; index++) {
+          outputFile.write(data[row][index] + " ");
+        }
+    }
+   }
+  }
+
+  public static double getTotal(double[][] data) {
+    double sumOfArray = 0;
     for (int row = 0; row < data.length; row++) {
       for (int index = 0; index < data[row].length; index++) {
-        outputFile.write(String.valueOf(data[row][index]) + " ");
+        sumOfArray += data[row][index];
       }
-      outputFile.write("\n");
     }
-    outputFile.close();
+    return sumOfArray;
   }
+
+  public static double getAverage(double[][] data) {
+    int totalElements = 0;
+    double sum = getTotal(data);
+    for (double[] row : data) {
+      for (double elem : row) {
+        totalElements++;
+      }
+    }
+    return sum / totalElements;
+  }
+  
+  
+
 
 }
