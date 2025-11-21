@@ -31,12 +31,14 @@ public class TwoDimRaggedArrayUtility {
   }
   
   public static void writeToFile(double[][] data, File file) throws IOException {
-    FileWriter outputFile = new FileWriter(file, true);
-    for (double[] row : data) {
-      for (int index = 0; index < row.length; index++)
-        outputFile.write(String.valueOf(data[index]));
+    FileWriter outputFile = new FileWriter(file, true); // ADD TRUE IF NEEDS TO BE APPENDING
+    for (int row = 0; row < data.length; row++) {
+      for (int index = 0; index < data[row].length; index++) {
+        outputFile.write(String.valueOf(data[row][index]) + " ");
+      }
+      outputFile.write("\n");
     }
-    System.out.println();
+    outputFile.close();
   }
 
 }
