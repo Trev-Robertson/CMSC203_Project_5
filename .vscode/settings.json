@@ -2,6 +2,9 @@
     "java.project.sourcePaths": ["src"],
     "java.project.outputPath": "bin",
     "java.project.referencedLibraries": [
-        "lib/**/*.jar"
+        "lib/**/*.jar",
+        "/Users/trobertson/Desktop/Montgomery College/CMSC 203/junit6/junit-jupiter-api-6.0.1.jar",
+        "/Users/trobertson/Desktop/Montgomery College/CMSC 203/junit6/junit-jupiter-engine-6.0.1.jar",
+        "/Users/trobertson/Desktop/Montgomery College/CMSC 203/junit6/junit-platform-console-standalone-6.0.1.jar"
     ]
 }
