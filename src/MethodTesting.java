@@ -15,8 +15,15 @@ public class MethodTesting {
     double sum = getTotal(sampData);
 
     System.out.print(sum);
+    double[][] d = {
+        { 13.0, 24.0, 3.0, 4.0, 5.0, 1.9 },
+        { 7.0, 8.0, 900.0 },
+        { 10.0 },
+        { 11.0, 122.0, 13.0, 14.0 },
+        { 150.0, 17.18, 18.2 }
+    };
   }
-
+  
 
   public static double[][] readFile(File file) throws FileNotFoundException {
     try (Scanner inputFile = new Scanner(file)) {

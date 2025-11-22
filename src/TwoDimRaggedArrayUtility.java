@@ -1,6 +1,7 @@
 
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 
@@ -59,7 +60,83 @@ public class TwoDimRaggedArrayUtility {
     return sum / totalElements;
   }
   
-  
+  public static double getRowTotal(double[][] data, int row) {
+    double[][] total = { data[row] };
+    return getTotal(total);
+  }
 
+  public static double getColumnTotal(double[][] data, int col) {
+    double accumulator = 0;
+
+    for (int row = 0; row < data.length; row++) {
+      if (col < data[row].length) {
+        accumulator += data[row][col];
+      }
+    }
+    return accumulator;
+  }
+  
+  public static double getHighestInRow(double[][] data, int row) {
+    double highestInRow = data[row][0];
+    for (double elem : data[row]) {
+      highestInRow = highestInRow < elem ? elem : highestInRow;
+    }
+    return highestInRow;
+  }
+
+  public static int getHighestInRowIndex(double[][] data, int row) {
+    double highestInRow = getHighestInRow(data, row);
+    int indexOfHighestNum = -1;
+    for (int index = 0; index < data[row].length; index++) {
+      if (data[row][index] == highestInRow) {
+        indexOfHighestNum = index;
+        break;
+      }
+    }
+    return indexOfHighestNum;
+  }
+
+  public static double getLowestInRow(double[][] data, int row) { 
+    double lowestInRow = data[row][0];
+    for (double elem : data[row]) {
+      lowestInRow = lowestInRow > elem ? elem : lowestInRow;
+    }
+    return lowestInRow;
+  }
+
+  public static int getLowestInRowIndex(double[][] data, int row) { 
+    double lowestInRow = getLowestInRow(data, row);
+    int indexOfLowestNum = -1;
+    for (int index = 0; index < data[row].length; index++) {
+      if (data[row][index] == lowestInRow) {
+        indexOfLowestNum = index;
+      }
+    }
+    return indexOfLowestNum;
+  }
+
+  public static double getHighestInColumn(double[][] data, int col) { 
+    ArrayList<Double> highestInColumn = new ArrayList<>();
+    for (int row = 0; row < data.length; row++) {
+      if (col < data[row].length) {
+        highestInColumn.add(data[row][col]);
+      }
+    }
+    return Collections.max(highestInColumn);
+  }
+
+  public static int getHighestInColumnIndex(double[][] data, int col) {//12
+    double highestInColumn = getHighestInColumn(data, col);
+    int index = 0;
+    for (int row = 0; row < data.length; row++) {
+      if (col < data[row].length) {
+        if (highestInColumn == data[row][col]) {
+          index = row;
+          break;
+        }
+      }
+    }
+    return index;
+  }
 
 }

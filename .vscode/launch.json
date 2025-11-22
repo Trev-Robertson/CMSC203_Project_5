@@ -1,0 +1,49 @@
+{
+  // Use IntelliSense to learn about possible attributes.
+  // Hover to view descriptions of existing attributes.
+  // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Current File",
+      "request": "launch",
+      "mainClass": "${file}"
+    },
+    {
+      "type": "java",
+      "name": "Run All JUnit Tests",
+      "request": "launch",
+      "mainClass": "org.junit.platform.console.ConsoleLauncher",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "/Users/trobertson/Desktop/Montgomery College/CMSC 203/junit6/junit-platform-console-standalone-6.0.1.jar"
+      ],
+      "args": [
+        "execute",
+        "--scan-classpath"
+      ],
+      "purpose": [
+        "run-test"
+      ]
+    },
+    {
+      "type": "java",
+      "name": "Debug All JUnit Tests",
+      "request": "launch",
+      "mainClass": "org.junit.platform.console.ConsoleLauncher",
+      "classPaths": [
+        "${workspaceFolder}/bin",
+        "/Users/trobertson/Desktop/Montgomery College/CMSC 203/junit6/junit-platform-console-standalone-6.0.1.jar"
+      ],
+      "args": [
+        "execute",
+        "--scan-classpath",
+        "--details=tree"
+      ],
+      "purpose": [
+        "debug-test"
+      ]
+    }
+  ]
+}
