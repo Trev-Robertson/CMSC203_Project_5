@@ -163,4 +163,24 @@ public class TwoDimRaggedArrayUtility {
     return index;
   }
 
+  public static double getHighestInArray(double[][] data) {
+    double highestInArray = data[0][0];
+    for (double[] row : data) {
+      for (double elem : row) {
+        highestInArray = highestInArray < elem ? elem : highestInArray;
+      }
+    }
+    return highestInArray;
+  }
+
+  public static double getLowestInArray(double[][] data) {
+    double lowestInArray = data[0][0];
+    for (double[] row : data) {
+      for (double elem : row) {
+        lowestInArray = lowestInArray > elem ? elem : lowestInArray;
+      }
+    }
+    return lowestInArray;
+  }
+
 }
