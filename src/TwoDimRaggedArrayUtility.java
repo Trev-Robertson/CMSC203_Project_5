@@ -125,12 +125,36 @@ public class TwoDimRaggedArrayUtility {
     return Collections.max(highestInColumn);
   }
 
-  public static int getHighestInColumnIndex(double[][] data, int col) {//12
+  public static int getHighestInColumnIndex(double[][] data, int col) {
     double highestInColumn = getHighestInColumn(data, col);
     int index = 0;
     for (int row = 0; row < data.length; row++) {
       if (col < data[row].length) {
         if (highestInColumn == data[row][col]) {
+          index = row;
+          break;
+        }
+      }
+    }
+    return index;
+  }
+
+  public static double getLowestInColumn(double[][] data, int col) {
+    ArrayList<Double> lowestInColumn = new ArrayList<>();
+    for (int row = 0; row < data.length; row++) {
+      if (col < data[row].length) {
+        lowestInColumn.add(data[row][col]);
+      }
+    }
+    return Collections.min(lowestInColumn);
+  }
+
+  public static int getLowestInColumnIndex(double[][] data, int col) {// 14
+    double lowestInColumn = getLowestInColumn(data, col);
+    int index = 0;
+    for (int row = 0; row < data.length; row++) {
+      if (col < data[row].length) {
+        if (lowestInColumn == data[row][col]) {
           index = row;
           break;
         }
